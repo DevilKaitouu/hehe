@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #heart-container {
+            position: relative;
+            cursor: pointer;
+        }
+
+        #heart {
+            width: 100px;
+            height: 90px;
+            background-color: #e44d5c;
+            position: absolute;
+            transform: rotate(-45deg);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #heart::before,
+        #heart::after {
+            content: '';
+            width: 100px;
+            height: 90px;
+            background-color: #e44d5c;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        #heart::before {
+            top: -45px;
+            left: 0;
+        }
+
+        #heart::after {
+            top: 0;
+            left: 45px;
+        }
+
+        #hidden-image {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="heart-container">
+        <div id="heart"></div>
+        <img id="hidden-image" src="z4948738778846_2b35f2d0cdf7a3eb59449fa24693cf87.jpg" alt="Hidden Image">
+    </div>
+
+    <script>
+        const heartContainer = document.getElementById('heart-container');
+        const heart = document.getElementById('heart');
+        const hiddenImage = document.getElementById('hidden-image');
+
+        heartContainer.addEventListener('click', () => {
+            heart.style.transform = 'scale(0)';
+            setTimeout(() => {
+                hiddenImage.style.display = 'block';
+            }, 300);
+        });
+    </script>
+</body>
+</html>
